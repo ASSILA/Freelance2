@@ -1,0 +1,55 @@
+{% extends "base.html.twig" %}
+{% block body %}
+  <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Liste Candidatures 
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Profile</a></li>
+                <li><a href="#">Gestion des Projet</a></li>
+                <li class="active">Liste Candidatures</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Liste Candidatures</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>nom</th>
+                                        <th>budget</th>
+                                        <th>checkin</th>
+                                        <th>checkout</th>
+                                        <th>freelancer</th>
+                                        <th>valider candidature</th>
+                                        
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        {% for projet in projets if projet.emailfreelancer != null %}
+                                            <tr>
+                                                <td>{{ projet.nom }}</td>
+                                                <td>{{ projet.budget }}</td>
+                                                <td>{{ projet.checkIn|date('D/M/Y') }}</td>
+                                                <td>{{ projet.checkOut|date('D/M/Y')}}</td>
+                                                <td>{{ projet.emailfreelancer}}</td>
+                                              
+ <td>
+<a href="{{path("freelancer_main_confirmer_projet",{'id':projet.id})}}"   >
+     <button class="btn btn-primary btn-block btn-flat">valider candidature</button>
+        </a>
+</td> 
+                                            </tr>
+                                        {% endfor %}
+                                        </div> </div></div></div></div>
+                                    {% endblock %}
+
+ 
+ 
+  

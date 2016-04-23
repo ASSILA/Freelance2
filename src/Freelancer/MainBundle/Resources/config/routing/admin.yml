@@ -1,0 +1,30 @@
+admin:
+    path:     /
+    defaults: { _controller: "FreelancerMainBundle:Admin:index" }
+
+admin_show:
+    path:     /{id}/show
+    defaults: { _controller: "FreelancerMainBundle:Admin:show" }
+
+admin_new:
+    path:     /new
+    defaults: { _controller: "FreelancerMainBundle:Admin:new" }
+
+admin_create:
+    path:     /create
+    defaults: { _controller: "FreelancerMainBundle:Admin:create" }
+    methods:  POST
+
+admin_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FreelancerMainBundle:Admin:edit" }
+
+admin_update:
+    path:     /{id}/update
+    defaults: { _controller: "FreelancerMainBundle:Admin:update" }
+    methods:  [POST, PUT]
+
+admin_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FreelancerMainBundle:Admin:delete" }
+    methods:  [POST, DELETE]

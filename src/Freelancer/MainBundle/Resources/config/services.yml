@@ -1,0 +1,26 @@
+services:
+    form.type.datePicker:
+        class: Freelancer\MainBundle\Form\Type\DatePickerType
+        tags:
+            - { name: form.type, alias: datePicker } 
+            
+    admin.registration.form.type: 
+        class: Freelancer\MainBundle\Form\Type\RegistrationAdminType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: admin_user_registration }
+    
+    freelancer.registration.form.type:
+        class: Freelancer\MainBundle\Form\Type\RegistrationFreelancerType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: freelancer_user_registration }
+
+    jobowner.registration.form.type:
+        class: Freelancer\MainBundle\Form\Type\RegistrationJobownerType
+        arguments: [%fos_user.model.user.class%]
+        tags:
+            - { name: form.type, alias: jobowner_user_registration }
+            
+    
+            

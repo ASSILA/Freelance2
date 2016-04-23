@@ -1,0 +1,47 @@
+{% extends "base2.html.twig" %}
+{% block body %}
+    <div class="content-wrapper">
+        <section class="content-header">
+            <h1>
+                Liste Projets  en cours
+                <small>Liste Projets en cours</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li><a href="#"><i class="fa fa-dashboard"></i> Prifile</a></li>
+                <li><a href="#">Liste Projets en cours</a></li>
+                <li class="active">Liste Projets en cours</li>
+            </ol>
+        </section>
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+                        <div class="box-header">
+                            <h3 class="box-title">Data Table With Full Features</h3>
+                        </div><!-- /.box-header -->
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>nom</th>
+                                        <th>budget</th>
+                                        <th>checkin</th>
+                                        <th>checkout</th>
+                                        <th>description</th>
+                                       
+                                    </tr>
+                                </thead>
+                                    <tbody>
+                                        {% for projet in projets  %}
+                                            <tr>
+                                                <td>{{ projet.nom }}</td>
+                                                <td>{{ projet.budget }}</td>
+                                                <td>{{ projet.checkIn|date('D/M/Y') }}</td>
+                                                <td>{{ projet.checkOut|date('D/M/Y')}}</td>
+                                                <td>{{ projet.description}}</td>
+                                                
+
+                                            </tr>
+                                        {% endfor %}
+                                        </div></div></div></div></section></div>
+                                    {% endblock %}

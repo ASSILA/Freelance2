@@ -1,0 +1,30 @@
+jobowner:
+    path:     /
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:index" }
+
+jobowner_show:
+    path:     /{id}/show
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:show" }
+
+jobowner_new:
+    path:     /new
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:new" }
+
+jobowner_create:
+    path:     /create
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:create" }
+    methods:  POST
+
+jobowner_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:edit" }
+
+jobowner_update:
+    path:     /{id}/update
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:update" }
+    methods:  [POST, PUT]
+
+jobowner_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FreelancerMainBundle:Jobowner:delete" }
+    methods:  [POST, DELETE]

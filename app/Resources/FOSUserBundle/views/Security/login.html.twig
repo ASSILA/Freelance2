@@ -1,0 +1,54 @@
+{% extends "FOSUserBundle::layout.html.twig" %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+{% block title %}Connexion | Freelancer Website{% endblock %}
+{% block fos_user_content %}
+{% if error %}
+    <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+{% endif %}
+
+<div class="login-page">
+    <div class="login-box">
+      <div class="login-logo">
+        <a href="{{ path('fos_user_security_login') }}"><b>Freelancer </b>Connexion</a>
+      </div><!-- /.login-logo -->
+      <div class="login-box-body">
+        <p class="login-box-msg">Connectez-vous pour commencer votre session</p>
+        <form action="{{ path("fos_user_security_check") }}" method="post">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+          <div class="form-group has-feedback">
+            <input type="text" class="form-control" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans }}"/>
+            <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}"/>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="row">
+            <div class="col-xs-8">    
+              <div class="checkbox icheck">
+                <label>
+                  <input type="checkbox" id="remember_me" name="_remember_me" value="on"> {{ 'security.login.remember_me'|trans }}
+                </label>
+              </div>                        
+            </div><!-- /.col -->
+            <div class="col-xs-4">
+              <button type="submit" id="_submit" name="_submit" class="btn btn-primary btn-block btn-flat" >{{ 'security.login.submit'|trans }}</button>
+            </div><!-- /.col -->
+          </div>
+        </form>
+
+        <div class="social-auth-links text-center">
+          <p>- OR -</p>
+          <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Connectez-vous en utilisant Facebook</a>
+          <a href="#" class="btn btn-block btn-social btn-google-plus btn-flat"><i class="fa fa-google-plus"></i> Connectez-vous en utilisant Google+</a>
+        </div><!-- /.social-auth-links -->
+
+        <a href="{{ path('fos_user_change_password') }}">Changer Mot De Passe</a><br>
+        <a href="{{ path('freelancer_main_choiceRegistration') }}" class="text-center">Créer une nouvelle adhésion</a>
+
+      </div><!-- /.login-box-body -->
+    </div><!-- /.login-box -->
+       <br />
+  </div>
+{% endblock fos_user_content %}

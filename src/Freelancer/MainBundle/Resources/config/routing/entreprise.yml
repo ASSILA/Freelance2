@@ -1,0 +1,30 @@
+entreprise:
+    path:     /
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:index" }
+
+entreprise_show:
+    path:     /{id}/show
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:show" }
+
+entreprise_new:
+    path:     /new
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:new" }
+
+entreprise_create:
+    path:     /create
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:create" }
+    methods:  POST
+
+entreprise_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:edit" }
+
+entreprise_update:
+    path:     /{id}/update
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:update" }
+    methods:  [POST, PUT]
+
+entreprise_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "FreelancerMainBundle:Entreprise:delete" }
+    methods:  [POST, DELETE]

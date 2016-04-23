@@ -1,0 +1,89 @@
+freelancer_main_projet:
+    resource: "@FreelancerMainBundle/Resources/config/routing/projet.yml"
+    prefix:   /projet
+
+freelancer_main_cv:
+    resource: "@FreelancerMainBundle/Resources/config/routing/cv.yml"
+    prefix:   /cv
+
+freelancer_main_reclamation:
+    resource: "@FreelancerMainBundle/Resources/config/routing/reclamation.yml"
+    prefix:   /reclamation
+
+freelancer_main_admin:
+    resource: "@FreelancerMainBundle/Resources/config/routing/admin.yml"
+    prefix:   /admin
+
+freelancer_main_user:
+    resource: "@FreelancerMainBundle/Resources/config/routing/user.yml"
+    prefix:   /user
+
+freelancer_main_entreprise:
+    resource: "@FreelancerMainBundle/Resources/config/routing/entreprise.yml"
+    prefix:   /entreprise
+
+freelancer_main_jobowner:
+    resource: "@FreelancerMainBundle/Resources/config/routing/jobowner.yml"
+    prefix:   /jobowner
+
+freelancer_main_freelancer:
+    resource: "@FreelancerMainBundle/Resources/config/routing/freelancer.yml"
+    prefix:   /freelancer
+
+freelancer_main_profile:
+    path:     /profi
+    defaults: { _controller: FreelancerMainBundle:Default:prof }
+freelancer_main_choiceRegistration:
+    path:     /choiceRegistration
+    defaults: { _controller: FreelancerMainBundle:Default:choices }
+freelancer_main_acceuil:
+    path:     /
+    defaults: { _controller: FreelancerMainBundle:Default:acceuil }
+freelancer_main_addprojet:
+    path:     /jobowner/addprojet
+    defaults: { _controller: FreelancerMainBundle:Projet:add }
+freelancer_main_listencours_projet:
+    path: /jobowner/listprojetencours
+    defaults: { _controller: FreelancerMainBundle:Projet:listencours }
+freelancer_main_listencoursf_projet:
+    path: /freelancer/listprojetencoursf
+    defaults: { _controller: FreelancerMainBundle:Projet:listencoursf }
+freelancer_main_list_projet:
+    path: /jobowner/listprojet
+    defaults: { _controller: FreelancerMainBundle:Projet:list }
+freelancer_main_listtraite_projet:
+    path: /jobowner/listprojettraite
+    defaults: { _controller: FreelancerMainBundle:Projet:listtraite }
+freelancer_main_listtraitef_projet:
+    path: /freelancer/listprojettraitef
+    defaults: { _controller: FreelancerMainBundle:Projet:listtraitef }
+freelancer_main_listdispo_projet:
+    path: /freelancer/listprojetdispo
+    defaults: { _controller: FreelancerMainBundle:Projet:listdispo }
+freelancer_main_recherche_projet:
+    path: /jobowner/rechercheprojet
+    defaults: { _controller: FreelancerMainBundle:Projet:search }
+freelancer_main_update_projet:
+    path: /jobowner/updateprojet/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:update }
+freelancer_main_delete_projet:
+    path: /jobowner/deleteprojet/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:delete }
+freelancer_main_deposer_projet:
+    path: /freelancer/deposerprojet/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:deposer }
+freelancer_main_listconfirmer_projet:
+    path: /jobowner/listcandidature
+    defaults: { _controller: FreelancerMainBundle:Projet:listconfirmer }
+freelancer_main_confirmer_projet:
+    path: /jobowner/confirmerprojet/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:confirmer }
+freelancer_main_telecharger_projet:
+    path: /jobowner/telechargerprojet/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:telecharger }
+freelancer_main_listdepose_projet:
+    path: /freelancer/retirercandidature
+    defaults: { _controller: FreelancerMainBundle:Projet:listprojetdeposer }
+freelancer_main_retirercandidature_projet:
+    path: /freelancer/retirercandidature/{id}
+    defaults: { _controller: FreelancerMainBundle:Projet:retirercandidature }

@@ -1,0 +1,67 @@
+services:
+    sonata.admin.entreprise:
+        class: Freelancer\MainBundle\admin\EntrepriseAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Entreprise" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Entreprise
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]]  
+    
+    sonata.admin.freelancer:
+        class: Freelancer\MainBundle\admin\FreelancerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Freelancer" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Freelancer
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]]
+    
+    sonata.admin.jobowner:
+        class: Freelancer\MainBundle\admin\JobownerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Jobowner" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Jobowner
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]]
+            
+    sonata.admin.projet:
+        class: Freelancer\MainBundle\admin\ProjetAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Projet" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Projet
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]]  
+         
+    sonata.admin.projet:
+        class: Freelancer\MainBundle\admin\ProjetAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Projet" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Projet
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]] 
+            
+            
+    sonata.admin.cv:
+        class: Freelancer\MainBundle\admin\CvAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Cv" }
+        arguments:
+            - ~
+            - Freelancer\MainBundle\Entity\Cv
+            - ~
+        calls:
+            - [ setTranslationDomain, [FreelancerMainBundle]]           

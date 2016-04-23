@@ -1,0 +1,28 @@
+freelancer_main:
+    resource: "@FreelancerMainBundle/Resources/config/routing.yml"
+    prefix:   /
+
+freelancer_registration:
+    pattern:  /register/freelancer
+    defaults: { _controller: FreelancerMainBundle:RegistrationFreelancer:register }
+
+jobowner_registration:
+    pattern:  /register/jobowner
+    defaults: { _controller: FreelancerMainBundle:RegistrationJobowner:register }
+
+admin_registration:
+    pattern:  /register/admin
+    defaults: { _controller: FreelancerMainBundle:RegistrationAdmin:register }
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+backoffice_admin:
+    resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
+    prefix: /adminS
+_sonata_admin:
+    resource: .
+    type: sonata_admin
+    prefix: /adminS

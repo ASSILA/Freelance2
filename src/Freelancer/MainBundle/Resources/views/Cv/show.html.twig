@@ -1,0 +1,40 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cv</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Cvemail</th>
+                <td>{{ entity.cvEmail }}</td>
+            </tr>
+            <tr>
+                <th>Language</th>
+                <td>{{ entity.language }}</td>
+            </tr>
+            <tr>
+                <th>Experience</th>
+                <td>{{ entity.experience }}</td>
+            </tr>
+            <tr>
+                <th>Datemodif</th>
+                <td>{{ entity.dateModif|date('Y-m-d H:i:s') }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('cv') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('cv_edit', { 'id': entity.cvEmail }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

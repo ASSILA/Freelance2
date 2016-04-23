@@ -1,0 +1,50 @@
+{% extends '::base.html.twig' %}
+{% trans_default_domain 'FOSUserBundle' %}
+{% block body %}  
+<div class="wrapper">
+ <!-- Content Wrapper. Contains page content -->
+{% include '::page_header.html.twig' %}
+{% block username %}{{ user.username }}{% endblock %}
+{% block username2 %}{{ user.username }}{% endblock %}
+{% block email %}{{ user.email }}{% endblock %}
+
+    <h1>Freelancer list</h1>
+
+    <table class="dataTable">
+        <thead>
+            <tr>
+                <th>Note</th>
+                <th>Solde</th>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Adresse</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('freelancer_show', { 'id': entity.id }) }}">{{ entity.note }}</a></td>
+                <td>{{ entity.solde }}</td>
+                <td>{{ entity.id }}</td>
+                <td>{{ entity.nom }}</td>
+                <td>{{ entity.prenom }}</td>
+                <td>{{ entity.adresse }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('freelancer_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('freelancer_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+    {% endblock %}

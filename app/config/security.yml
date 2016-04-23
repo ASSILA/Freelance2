@@ -1,0 +1,54 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: sha512
+
+    role_hierarchy:
+        ROLE_JOBOWNER:    ROLE_USER
+        ROLE_FREELANCER:  ROLE_USER
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username_email
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                # submit the login form here
+                check_path: /login_check
+
+                # the user is redirected here when they need to log in
+                login_path: /login
+
+                # if true, forward the user to the login form instead of redirecting
+                use_forward: true
+                success_handler: redirect.after.login
+                # login success redirecting options (read further below)
+                always_use_default_target_path: false
+                default_target_path:            /profile
+                target_path_parameter:          _target_path
+                use_referer:                    false
+                require_previous_session: true
+            logout:
+                path: /logout
+                target: /
+                success_handler: redirect.after.logout
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/adminS, role: ROLE_SUPER_ADMIN }
+        - { path: ^/register/admin$, role: ROLE_SUPER_ADMIN }
+        - { path: ^/profile/freelancer, role: ROLE_FREELANCER }
+        - { path: ^/profile/jobowner, role: ROLE_JOBOWNER }
+        - { path: ^/entreprise, role: ROLE_ADMIN }
+        - { path: ^/jobowner, role: ROLE_JOBOWNER }
+        - { path: ^/freelancer, role: ROLE_FREELANCER }
+        
+        
+        

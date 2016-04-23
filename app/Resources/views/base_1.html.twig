@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        {% block javascripts %}
+            <script src="{{ asset ('bundles/freelancermain/js/jquery-1.10.2.min.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/bootstrap.min.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/jquery.easing.min.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/jquery.bxslider.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/jquery.nicescroll.min.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/waypoints.min.js') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/themehippo.js') }}"></script>
+            <script src="{{ asset ('http://maps.googleapis.com/maps/api/js?sensor=false') }}"></script>
+            <script src="{{ asset ('bundles/freelancermain/js/script.js') }}"></script>
+
+        {% endblock %}
+        {% block stylesheets %}
+            <link href="{{ asset ('bundles/freelancermain/css/reset.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('http://fonts.googleapis.com/css?family=Lato:100,300,400,700') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/bootstrap.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/font-awesome.min.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/fontello/css/fontello.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/jquery.bxslider.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/style.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('css/style.css') }}" rel="stylesheet" />
+            <link href="{{ asset ('bundles/freelancermain/css/media-query.css') }}" rel="stylesheet" />
+
+        {% endblock %}
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    </head>
+    <body>
+        <div class="body-inner-wrapper">
+            <div id="menu-wrapper" class="navbar-wrapper">
+                <div class="inner-container">
+                    <div id="navigation-bar" class="navbar navbar-inverse navbar-static-top" role="navigation">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <div>
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="sr-only">Toggle navigation</span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                    <a id="logo" class="navbar-brand" href="{{ path('freelancer_main_acceuil') }}"><img class="click" src="{{ asset ('bundles/freelancermain/images/logo.png') }}" alt="" /></a>
+                                </div>
+                            </div>
+                            <div id="menu" class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav navbar-left">
+                                    {% block home %}    <li class="active home click"><a href="{{ path('freelancer_main_acceuil') }}"> Accueil </a></li> {% endblock %}
+                                    {% block profile %}  <li class="service click "><a href="{{ path('freelancer_main_profile') }}">Profile</a></li>{% endblock %}
+                                    {% block projets %}  <li class="portfolio click" ><a href="#portfolio-wrapper">Projets</a></li>{% endblock %}
+                                    {% block about %} <li class="about click"><a href="#about-wrapper">A Propos</a></li>{% endblock %}
+                                    {% block contact %} <li class="contact click"><a href="#contact-wrapper">Contact</a></li>{% endblock %}
+                                    {% block login %} <li class="portfolio click"><a href="{{ path('fos_user_security_login') }}">Connexion</a></li>{% endblock %}
+                                    {% block signin %} <li class="portfolio click"><a href="{{ path('freelancer_main_choiceRegistration') }}">Inscription</a></li>{% endblock %}
+                                    {% block freelancer %} <li class="client click"><a href="{{ path('fos_user_security_logout') }}">Déconnexion</a></li>{% endblock %}
+                            </ul>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% block break %}{% endblock %}
+    {% block container %}{% endblock %}
+</div>
+{% block body %}{% endblock %}
+
+<script>$(".click").click(function () {
+        window.location = $(this).find("a").attr("href");
+        return false;
+    });</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block body %}
+
+        <table class="pricingtable">
+
+            
+                <tr>
+                    <th class="bronze" scope="col">nom</th>
+                    <th class="gold" scope="col">budget</th>
+                    <th class="silver" scope="col">checkin</th>
+                    <th class="gold" scope="col">checkout</th>
+                    <th class="bronze" scope="col">description</th>
+
+                </tr>
+            
+
+             
+                <tr>
+                    <td>{{ projet.nom }}</td>
+                    <td>{{ projet.budget }}</td>
+                    <td>{{ projet.checkIn|date('D/M/Y') }}</td>
+                    <td>{{ projet.checkOut|date('D/M/Y')}}</td>
+                    <td>{{ projet.description}}</td>
+
+
+
+                </tr>
+           
+
+        </table>
+  {% endblock %}

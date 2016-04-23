@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<H1>attribuer un projet</H1>
+<form action="" method="POST">
+    <table class="">
+                <tr>
+                    <td>{{form_label(form.nom, "Nom: ")}}</td>
+                    <td>{{form_widget(form.nom)}}</td>
+                </tr>
+                <tr>
+                    <td>{{form_label(form.budget , "Budget: ")}}</td>
+                    <td>{{form_widget(form.budget )}}</td>
+                </tr>
+                <tr>
+                    <td>{{form_label(form.checkIn, "checkin: ")}}</td>
+                    <td>{{form_widget(form.checkIn)}}</td>
+                </tr>
+                <tr> 
+                    <td> {{form_label(form.checkOut, "chekout: ")}}</td>
+                    <td>{{form_widget(form.checkOut)}}</td>
+                </tr>
+                <tr> 
+                    <td> {{form_label(form.description, "description: ")}}</td>
+                    <td>{{form_widget(form.description)}}</td>
+                </tr>
+                <tr><td>{{form_widget(form.valider)}}</td></tr>
+                <tr><td>{{form_widget(form.annuler)}}</td></tr>
+                {{ form_rest(form)}}
+            </table>
+        </form>
+   {% endblock %}

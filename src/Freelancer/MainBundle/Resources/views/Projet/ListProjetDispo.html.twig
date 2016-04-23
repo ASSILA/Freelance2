@@ -1,0 +1,58 @@
+{% extends "base2.html.twig" %}
+
+{% block body %}
+    <div class="content-wrapper">
+        <section class="content">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="box">
+
+                        <h1>
+                            &RightArrow;Liste des Projets
+                            <small>disponibles</small>
+                        </h1>
+                        <div class="box-body">
+                            <table id="example2" class="table table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="bronze" scope="col">nom</th>
+                                        <th class="gold" scope="col">budget</th>
+                                        <th class="silver" scope="col">checkin</th>
+                                        <th class="gold" scope="col">checkout</th>
+                                        <th class="bronze" scope="col">description</th>
+                                        <th class="bronze" scope="col">deposer</th>
+                                        <th class="bronze" scope="col">telecharger</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for projet in projets  %}
+                                        <tr>
+                                            <td>{{ projet.nom }}</td>
+                                            <td>{{ projet.budget }}</td>
+                                            <td>{{ projet.checkIn|date('D/M/Y') }}</td>
+                                            <td>{{ projet.checkOut|date('D/M/Y')}}</td>
+                                            <td>{{ projet.description}}</td>
+
+                                            </td>
+                                            <td>
+                                                <a href="{{path("freelancer_main_deposer_projet",{'id':projet.id})}}"   >
+                                                    deposer
+                                                </a>
+                                            </td> 
+                                            <td>
+                                                <a href="{{path("freelancer_main_telecharger_projet",{'id':projet.id})}}"   >
+                                                    telecharger
+                                                </a>
+                                            </td> 
+
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

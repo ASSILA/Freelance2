@@ -1,0 +1,25 @@
+<li class="dropdown notifications-menu">
+    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+        <i class="fa fa-bell-o"></i>
+        <span class="label label-warning">{{ v }}</span>
+    </a>
+    <ul class="dropdown-menu">
+        <li class="header">You have {{ v }} notifications</li>
+        <li>
+            <!-- inner menu: contains the actual data -->
+            <ul class="menu">
+                {% for p in projetsNotif if p.emailfreelancer != null %}
+                    <li>
+                        <a href="{{ path('freelancer_main_listconfirmer_projet') }}">
+                            <small>  <small class="label pull-left bg-aqua-active">{{ p.emailfreelancer }}</small>
+                               <small class="label pull-left bg-black-active">dépose sa candidature</small>
+                                <small class="label pull-left bg-yellow-active">{{ p.nom }}</small>
+                            </small>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </li>
+        <li class="footer"><a href="{{ path('freelancer_main_recherche_projet') }}">Voir tout</a></li>
+    </ul>
+</li>

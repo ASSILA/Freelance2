@@ -1,0 +1,45 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Cv list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Cvemail</th>
+                <th>Language</th>
+                <th>Experience</th>
+                <th>Datemodif</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('cv_show', { 'id': entity.cvEmail }) }}">{{ entity.cvEmail }}</a></td>
+                <td>{{ entity.language }}</td>
+                <td>{{ entity.experience }}</td>
+                <td>{% if entity.dateModif %}{{ entity.dateModif|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('cv_show', { 'id': entity.cvEmail }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('cv_edit', { 'id': entity.cvEmail }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('cv_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
